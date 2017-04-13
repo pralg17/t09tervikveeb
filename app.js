@@ -3,6 +3,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const assert = require('assert')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -54,6 +55,7 @@ class Joogipudel {
     	this.jook = jook;
     	this.kogumass = parseFloat(this.pudelimass) + parseFloat(this.jook.erikaal)*parseFloat(this.maht);
        	this.koguhind = parseFloat(this.taarahind) + parseFloat(this.jook.liitri_omahind)*parseFloat(this.maht);
+       	limpsivaat.hetkeseis = parseFloat(limpsivaat.hetkeseis) - parseFloat(this.maht)
     	this.taidetud = true;
     }
     toString() {
@@ -190,7 +192,7 @@ app.get('/taida/vaat/:millega', (req, res)=>{
 	let millega = req.params.millega
 	for (let obj of joogid){
 		if(obj.nimetus == millega){
-			var jook = obj;
+			var jook = obj
 		}
 	}
 	limpsivaat.taidaVaat(jook)
@@ -203,6 +205,36 @@ app.get('/tyhjendavaat', (req, res)=>{
 	limpsivaat.hetkeseis = 0
 	res.send(`<a href="http://46.101.173.169:3000/">Avaleht</a>
 		tühjendatud`)
+})
+
+app.get('/testid', (req, res)=>{
+
+	let uus_olts = new Jook("saastu_kange", 1.5, 1)
+	let a = uus_olts.erikaal
+	let b = 1
+
+	let uus_vaat = new Joogivaat("oltsi_vaat", 1)
+	let x = uus_vaat.hetkeseis
+	let y = 1
+
+
+
+	kasKlapivad(a,b)
+	kasKlapivad(x,y)
+
+
+
+	function kasKlapivad(a, b){
+		console.log("\n..:::: T E S T ::::..\n")
+		if(a !== b){
+			console.log("ei ole võrdsed! " + a + " ei ole " + b + "(oodatav väärtus)")
+		} else if (a === b){
+			console.log("klapivad! " + a + "  on ekvivalentne " + b + "'ga")
+		}
+	}
+
+	res.send("tulemused kajastuvad konsoolis!")
+
 })
 
 
