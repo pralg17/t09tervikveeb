@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="matu.SilindriTest" time="0.007" tests="2" errors="0" skipped="0" failures="2">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.121-b13"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb"/>
+    <property name="java.runtime.version" value="1.8.0_121-b13"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/opt/rh/rh-maven33/root/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="2.6.32-642.11.1.el6.x86_64"/>
+    <property name="user.home" value="/home/mattbleh"/>
+    <property name="user.timezone" value="Europe/Tallinn"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="mattbleh"/>
+    <property name="java.class.path" value="/opt/rh/rh-maven33/root/usr/share/maven/boot/plexus-classworlds.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_121"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/rt.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/opt/rh/rh-maven33/root/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="pindala" classname="matu.SilindriTest" time="0.007">
+    <failure message="expected:&lt;50.0&gt; but was:&lt;314.1592653589793&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<50.0> but was:<314.1592653589793>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:553)
+	at org.junit.Assert.assertEquals(Assert.java:683)
+	at matu.SilindriTest.pindala(SilindriTest.java:11)
+]]></failure>
+    <system-out><![CDATA[20:01:56.343 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class matu.TervitamiseTest]
+20:01:56.361 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+20:01:56.369 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+20:01:56.386 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [matu.TervitamiseTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+20:01:56.408 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [matu.TervitamiseTest], using SpringBootContextLoader
+20:01:56.414 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [matu.TervitamiseTest]: class path resource [matu/TervitamiseTest-context.xml] does not exist
+20:01:56.414 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [matu.TervitamiseTest]: class path resource [matu/TervitamiseTestContext.groovy] does not exist
+20:01:56.414 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [matu.TervitamiseTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+20:01:56.415 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [matu.TervitamiseTest]: TervitamiseTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:01:56.458 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [matu.TervitamiseTest]
+20:01:56.467 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+20:01:56.470 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+20:01:56.470 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+20:01:56.481 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [matu/] to resources [URL [file:/home/mattbleh/public_html/2.%20Semester/Programeerimise%20p%c3%b5hikursus/t09tervikveeb/target/test-classes/matu/], URL [file:/home/mattbleh/public_html/2.%20Semester/Programeerimise%20p%c3%b5hikursus/t09tervikveeb/target/classes/matu/]]
+20:01:56.482 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/test-classes/matu]
+20:01:56.482 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/test-classes/matu] for files matching pattern [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/test-classes/matu/*.class]
+20:01:56.485 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/classes/matu]
+20:01:56.486 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/classes/matu] for files matching pattern [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/classes/matu/*.class]
+20:01:56.486 [main] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:matu/*.class] to resources [file [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/test-classes/matu/SilindriTest.class], file [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/test-classes/matu/TervitamiseTest.class], file [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/classes/matu/Kera.class], file [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/classes/matu/Kerapind.class], file [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/classes/matu/Rakendus.class]]
+20:01:56.558 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/mattbleh/public_html/2. Semester/Programeerimise põhikursus/t09tervikveeb/target/classes/matu/Rakendus.class]
+20:01:56.559 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration matu.Rakendus for test class matu.TervitamiseTest
+20:01:56.562 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [matu.TervitamiseTest]: using defaults.
+20:01:56.566 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+20:01:56.577 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/TransactionDefinition]
+20:01:56.580 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+20:01:56.581 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@543e710e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@57f23557, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3d0f8e03, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6366ebe0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@44f75083, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2698dc7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@43d7741f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@17baae6e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@69379752, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@27fe3806]
+20:01:56.584 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [matu.TervitamiseTest]
+20:01:56.584 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [matu.TervitamiseTest]
+]]></system-out>
+  </testcase>
+  <testcase name="ruumala" classname="matu.SilindriTest" time="0">
+    <failure message="expected:&lt;1256.0&gt; but was:&lt;523.5987755982989&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<1256.0> but was:<523.5987755982989>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:553)
+	at org.junit.Assert.assertEquals(Assert.java:683)
+	at matu.SilindriTest.ruumala(SilindriTest.java:16)
+]]></failure>
+  </testcase>
+</testsuite>
