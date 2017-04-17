@@ -6,3 +6,4 @@ Spring veebirakenduse näide, kus
   * Võimalusel talletatakse tegevuste ajalugu andmebaasi
   * Võimalusel luuakse eraldi HTML-leht, mille kaudu pöördutakse REST teenuste poole
   
+ 
