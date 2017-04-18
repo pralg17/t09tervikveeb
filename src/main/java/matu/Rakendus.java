@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class Rakendus{
 	
+	//http://greeny.cs.tlu.ee:4207/KeraRuumala?raadius=5&konstant=0.333333
 	@RequestMapping("/KeraRuumala")
 	public String KeraRuumala(double raadius, double konstant) {
 		Kera s1 = new Kera(raadius, konstant);
