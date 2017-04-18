@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Pythagoras</title>
+		<script>
+			var yhendus=new XMLHttpRequest();
+			yhendus.onreadystatechange=saabumine;
+			function vajutus(){
+			var aadress="/KeraRuumala?raadius="+
+				document.getElementById("kast1").value+"&konstant="+
+				document.getElementById("kast2").value;
+			yhendus.open("GET", aadress, true);
+			yhendus.send();
+			}
+			function saabumine(){
+				if(yhendus.readyState==4){
+					document.getElementById("vastus").innerHTML=yhendus.responseText;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		Sisesta raadius:
+			<input type="text" id="kast1"><br>
+		Sisesta konstant, milleks on 0.3333333333333333:
+			<input type="text" id="kast2"><br>
+			<input type="button" value="Arvuta" onclick="vajutus()">
+		<br><br>
+		<div id ="vastus"> Vastus tuleb siia: </div>
+	</body>
+</html>
