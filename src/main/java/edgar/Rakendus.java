@@ -31,7 +31,7 @@ public class Rakendus{
 
 //scl enable rh-maven33 bash
 //mvn package
-//java -Dserver.port=4545 -jar target/app1.jar
+//java -Dserver.port=42222 -jar target/app1.jar
 
 /* Tetraedri pindala on 15.588457268119894 ruudus */
 
