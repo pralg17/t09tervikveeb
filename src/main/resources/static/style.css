@@ -1,0 +1,32 @@
+h2{
+	color:#4c5159;
+	font-family: Verdana;
+	font-size: 14px;
+}
+
+body{
+}
+
+
+
+#dollaridDiv{
+	padding-left : 20px;
+}
+#dollaridDiv,#euroDiv,#rublaDiv{
+	width:30%;
+	float:left;
+	padding-top:20px;
+	
+}
+
+#vastus{
+	width : 300;
+	font-size:30px;
+	padding :50px;
+	margin: 20px;
+	
+}
+
+input[type=text]:focus {
+    background-color: #f49cb8;
+}

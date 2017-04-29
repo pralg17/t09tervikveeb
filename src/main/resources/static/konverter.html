@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8"/>
+    <title>Konverter</title>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = getData;
+        function getData() {
+            document.getElementById("vastus").innerHTML = xhr.responseText;
+        }
+        function onPress() {
+            var url = "/dollarEuroks?x=" + document.getElementById("Dollar").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		 }
+		function onPress2() {
+            var url = "/eurodDollariks?x=" + document.getElementById("Euro").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		
+		function onPress6() {
+            var url = "/eurodRublaks?x=" + document.getElementById("Euro2").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		
+		function onPress3() {
+            var url = "/dollarRublaks?x=" + document.getElementById("Dollar2").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		function onPress4() {
+            var url = "/rubladDollariks?x=" + document.getElementById("Rubla").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		function onPress5() {
+            var url = "/rubladEuroks?x=" + document.getElementById("Rubla2").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		 
+    </script>
+</head>
+<body>
+
+<div id = "dollaridDiv">
+	<h2>Dollarid Euroks</h2>
+	<input type="text" id="Dollar"><br>
+	<input type="button" value="Arvuta" onclick="onPress()"/>
+	
+	<br>
+
+	<h2>Dollar Rublaks</h2>
+	<input type="text" id="Dollar2"><br>
+	<input type="button" value="Arvuta" onclick="onPress3()"/>
+	</div>
+
+
+
+<div id = "euroDiv">
+	<h2>Eurod Dollariks</h2>
+	<input type="text" id="Euro"><br>
+	<input type="button" value="Arvuta" onclick="onPress2()"/>
+
+	<br>
+	<h2>Euro Rublaks</h2>
+	<input type="text" id="Euro2"><br>
+	<input type="button" value="Arvuta" onclick="onPress6()"/>
+
+	
+</div>
+
+
+
+<div id = "rublaDiv">
+	<h2>Rubla Euroks</h2>
+	<input type="text" id="Rubla2"><br>
+	<input type="button" value="Arvuta" onclick="onPress5()"/>
+
+	<br>
+	<h2>Rubla Dollariks</h2>
+	<input type="text" id="Rubla"><br>
+	<input type="button" value="Arvuta" onclick="onPress4()"/>
+	
+</div>
+
+<br>
+<center><div id="vastus"></div></center>
+
+
+</body>
+</html>
