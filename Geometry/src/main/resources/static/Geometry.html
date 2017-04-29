@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Geometry</title>
+		<script>
+			var connection = new XMLHttpRequest();
+			connection.onreadystatechange = dataarrived;
+			function Circle_Calculations(){
+				var radius = document.getElementById("radius").value;
+				connection.open("GET", "/Circle?radius="+radius, true);
+				connection.send();
+			}
+			
+			function Triangle_Calculations(){
+				var side1 = document.getElementById("s1").value;
+				var side2 = document.getElementById("s2").value;
+				var side3 = document.getElementById("s3").value;
+				connection.open("GET", "/Triangle?side1="+side1+"&side2="+side2+"&side3="+side3, true);
+				connection.send();
+			}
+			
+			function dataarrived(){
+				document.getElementById("Results").innerHTML = connection.responseText;
+			}
+			
+			function Rectangle_Calculations(){
+				var height = document.getElementById("height").value;
+				var width = document.getElementById("width").value;
+				connection.open("GET", "/Rectangle?height="+height+"&width="+width, true);
+				connection.send();
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Results</h2>
+		<div id="Results"></div>
+		
+		<h2>Rectangle</h2>
+		<label>Height</label><br>
+		<input type="text" id="height" /><br>
+		<label>Width</label><br>
+		<input type="text" id="width" /><br>
+		
+		<input type="button" value="Calculate" onclick="Rectangle_Calculations()" />
+		
+		<h2>Triangle</h2>
+		<label>Side1</label><br>
+		<input type="text" id="s1" /><br>
+		<label>Side2</label><br>
+		<input type="text" id="s2" /><br>
+		<label>Side3</label><br>
+		<input type="text" id="s3" /><br>
+		
+		<input type="button" value="Calculate" onclick="Triangle_Calculations()" />
+		
+		<h2>Rectangle</h2>
+		<label>Radius</label><br>
+		<input type="text" id="radius" /><br>
+		
+		<input type="button" value="Calculate" onclick="Circle_Calculations()" />
+
+
+	</body>
+</html>
