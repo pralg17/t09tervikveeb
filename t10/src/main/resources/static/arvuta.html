@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Liisingu kalkulaator</title>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = andmedSaabusid;
+        function andmedSaabusid() {
+            document.getElementById("vastus1").innerHTML = "Iga kuu makse: " + xhr.responseText;
+        }
+        function vajutus() {
+
+                var aadress = "/calc?sum=" +
+                    document.getElementById("sum").value + "&period=" +
+                    document.getElementById("period").value + "&intress=" +
+                    document.getElementById("intress").value + "&bank=" +
+                    document.getElementById("bank").value;
+                /* + "&x2=" +
+                document.getElementById("x2").value;*/
+                xhr.open("GET", aadress, true);
+                xhr.send();
+
+        }
+        /*    function vajutus2(){
+         xhr.open("GET", "/pudelvaadist", true);
+         xhr.send();
+         }*/
+    </script>
+</head>
+<body>
+<br>
+<label for="bank">Vali pank</label>
+    <select id="bank">
+        <option value="swedbank">Swedbank</option>
+        <option value="sebbank">Sebbank</option>
+    </select><br><br>
+
+<label for="sum">Summa</label>
+<input type="text" id="sum"><br><br>
+<label for="period">Periood</label>
+<input type="text" id="period"><br><br>
+<label for="intress">Intress</label>
+<input type="text" id="intress"><br><br>
+
+<p>
+    <input type="button" value="Arvuta" onclick="vajutus()"/>
+</p>
+<div id="vastus1">vastuse koht</div>
+
+</body>
+</html>
