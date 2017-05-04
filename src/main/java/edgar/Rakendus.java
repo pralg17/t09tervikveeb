@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.*;
 
 public class Rakendus{
 
-  @RequestMapping("/kolünurk")
+  @RequestMapping("/kolmnurk")
   public String kolmnurk(double pikkus){
     Kujundid kolmnurk1 = new Kolmnurk(pikkus);
-    return "Tetraedri pindala on "+ kolmnurk1.TetraedriPindala() + "ruudus";
+    return "Tetraedri pindala on "+ kolmnurk1.TetraedriPindala() + " ruudus";
 
   }
 
   @RequestMapping("/tetraedr")
   public String tetraedr(double a){
     Kujundid kolmnurk2 = new Tetraedr(a);
-    return "Tetraedri ruumala on "+ kolmnurk2.TetraedriRuumala() + "kuubis";
+    return "Tetraedri ruumala on "+ kolmnurk2.TetraedriRuumala() + " kuubis";
 
   }
 
@@ -33,6 +33,6 @@ public class Rakendus{
 //mvn package
 //java -Dserver.port=42222 -jar target/app1.jar
 
-/* Tetraedri pindala on 15.588457268119894 ruudus */
+/*Tetraedri pindala on 43.30127018922193 ruudus*/
 
-/*Tetraedri ruumala on 3.1819805153394642 */
+/*Tetraedri ruumala on 14.73139127471974 kuubis */
