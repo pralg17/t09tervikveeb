@@ -1,0 +1,24 @@
+<html>
+<title>Created rectangles</title>
+<script>
+    var connection = new XMLHttpRequest();
+    function getRects() {
+        connection.open("GET", "/listCreatedRectangles", false);
+        connection.send(null);
+        document.getElementById("list").innerHTML = connection.responseText;
+    }
+
+    setTimeout(function(){
+        getRects();
+    }, 250);
+
+
+</script>
+<body>
+<div id="list">
+
+</div>
+<br>
+<a href="index.html">Create new rectangle</a>
+</body>
+</html>
