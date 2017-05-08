@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create rectangle</title>
+
+    <script>
+        var connection = new XMLHttpRequest();
+        function createRectangle() {
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("createResponse").innerHTML = "One of the values is not a number!";
+            } else {
+                connection.open("GET", "/createRectangle?a=" + a + "&b=" + b, false);
+                connection.send(null);
+                document.getElementById("createResponse").innerHTML = connection.responseText;
+                generateRectangle(a, b);
+            }
+        }
+
+        function generateRectangle(a,b){
+            var c=document.getElementById("rectCanvas");
+            var ctx=c.getContext("2d");
+            c.height = 900;
+            c.width = 900;
+            ctx.clearRect(0, 0, c.width, c.height);
+            ctx.beginPath();
+            ctx.rect(10,10,a,b);
+            ctx.stroke();
+        }
+    </script>
+</head>
+<body>
+    <a href="list.html">Created rectangles</a>
+    <br>
+    <input type="text" id="a" placeholder="A"/>
+    <br>
+    <input type="text" id="b" placeholder="B"/>
+    <br>
+    <input type="button" value="Create new rectangle" onclick="createRectangle()"/>
+    <br>
+    <div id="createResponse"></div>
+    <br>
+    <canvas id="rectCanvas">
+    </canvas>
+</body>
+</html>
