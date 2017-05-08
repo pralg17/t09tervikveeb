@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+	<head>
+		<title>Tervikveeb</title>
+
+		<script type="text/javascript">
+			var xhr = new XMLHttpRequest();
+
+			xhr.onreadystatechange = dataReceived;
+			
+			function dataReceived() {
+				document.getElementById("reply").innerHTML = xhr.responseText;
+			}
+
+			function addZerobefore(number) {
+				if(number < 10 && number > -10) {
+					number = "0" + parseInt(number);
+				}
+				return number;
+			}
+
+			function getCurrentDate(){
+				var currentDate = getDate(getTimezoneOffset());
+				var month = addZerobefore(currentDate.getUTCMonth());
+				var year = currentDate.getUTCFullYear();
+				var day = addZerobefore(currentDate.getUTCDate());
+				return year+"-"+month+"-"+day;
+			}
+
+			function getCurrentTime(){
+				var currentDate = getDate(getTimezoneOffset());
+				var hours = addZerobefore(currentDate.getUTCHours());
+				var minutes = addZerobefore(currentDate.getUTCMinutes());
+				var seconds = addZerobefore(currentDate.getUTCSeconds());
+				var dateString = hours + ":" + minutes + ":" + seconds;
+				return dateString;
+			};
+
+			function getTimezoneOffset() {
+				var currentDate = getDate();
+				var offset = currentDate.getTimezoneOffset()/-60;
+				return offset;
+			}
+
+			function getDate(offset) {
+				var date = new Date();
+				if (offset != null) {
+					var milliseconds = 3600000 * offset + date.getTime();
+					date = new Date(milliseconds);
+				}
+				return date;
+			}
+
+			function saveToDB() {
+				var temp = document.getElementById("temp").value;
+				var timestamp = getCurrentDate()+" "+getCurrentTime();
+				xhr.open("GET", "/save?temp="+temp+"&moment="+timestamp, true);
+				xhr.send();
+			}
+		</script>
+	</head>
+	<body>
+		<input id="temp" type="text" placeholder="Temperatuur(C)">
+		<input type="submit" onclick="saveToDB()">
+		<br>
+		<div id="reply"></div>
+	</body>
+</html>
