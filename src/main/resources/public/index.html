@@ -10,10 +10,14 @@
             var a = document.getElementById("a").value;
             var b = document.getElementById("b").value;
 
-            connection.open("GET", "/createRectangle?a=" + a + "&b=" + b, false);
-            connection.send(null);
-            document.getElementById("createResponse").innerHTML = connection.responseText;
-            generateRectangle(a, b);
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("createResponse").innerHTML = "One of the values is not a number!";
+            } else {
+                connection.open("GET", "/createRectangle?a=" + a + "&b=" + b, false);
+                connection.send(null);
+                document.getElementById("createResponse").innerHTML = connection.responseText;
+                generateRectangle(a, b);
+            }
         }
 
         function generateRectangle(a,b){
@@ -35,7 +39,7 @@
     <br>
     <input type="text" id="b" placeholder="B"/>
     <br>
-    <input type="button" value="Create new allele" onclick="createRectangle()"/>
+    <input type="button" value="Create new rectangle" onclick="createRectangle()"/>
     <br>
     <div id="createResponse"></div>
     <br>
