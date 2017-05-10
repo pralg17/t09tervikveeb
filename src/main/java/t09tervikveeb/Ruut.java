@@ -7,6 +7,7 @@ public class Ruut{
 	private double pindala;
 	private double umbermoot;
 
+	// Konstruktor paneb kõik kokku.
 	public Ruut(double kulg, double pindala, double umbermoot) {
 		this.kulg = kulg;
 		this.pindala = kulg*kulg;
