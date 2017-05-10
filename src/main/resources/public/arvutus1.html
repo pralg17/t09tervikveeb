@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<title>Paneb joogi vadist kasti</title>
+  <script>
+  var yhendus=new XMLHttpRequest();
+  yhendus.onreadystatechange=andmedSaabusid;
+  function kasti(){
+    var e = document.getElementById("Anum");
+    var a1 = e.options[e.selectedIndex].value;
+    var x = document.getElementById("Jook");
+    var a2= x.options[x.selectedIndex].value;
+    var y=document.getElementById("Kast");
+    var a3= y.options[y.selectedIndex].value;
+
+    console.log(a1);
+    console.log(a2);
+    console.log(a3);
+    var aadress="/kastimassjaomahind?anum="+a1+"&mark="+a2+"&tuup="+a3;
+    yhendus.open("GET", aadress, true);
+    yhendus.send();
+  }
+  function jookkasti(){
+      var e= document.getElementById("Anum");
+      var a1= e.options[e.selectedIndex].value;
+      var x= document.getElementById("Jook");
+      var a2= x.options[x.selectedIndex].value;
+      var y=document.getElementById("Kast");
+      var a3= y.options[y.selectedIndex].value;
+      console.log(a1);
+      console.log(a2);
+      console.log(a3);
+
+      var aadress="/koikkasti?anum="+a1+"&mark="+a2+"&tuup="+a3;
+      yhendus.open("GET", aadress, true);
+      yhendus.send();
+    }
+  function andmedSaabusid(){
+    document.getElementById("vastus").innerHTML=yhendus.responseText;
+  }
+
+  </script>
+</head>
+<h1>Paenb joogi kasti.</h1>
+<a href=arvutus1.html>Paneb joogi pudelisse.</a>
+<br></br>
+<body>
+  <select id="Anum">
+  <option value="plast" checked> Plastik</option>
+  <option value="klaas" > Klaas</option>
+</select>
+  <br></br>
+  <select id="Jook">
+  <option value="olu"> Õlu</option>
+  <option value="vein"> Vein</option>
+  <option value="vesi"> Vesi</option>
+  <option value="">Tühi</option>
+</select>
+  <select id="Kast">
+    <option value="k24">K24</option>
+    <option value="k20">K20</option>
+  </select>
+<br></br>
+  <input type="button" value="Kasti mass ja hind" onclick="kasti()"/>
+  <input type="button" value="Kogu jooks kasti" onclick="jookkasti()"/>
+<br></br>
+  <div id="vastus">Vastus</div>
+</body>
+</html>

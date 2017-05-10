@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<title>Arvutamine</title>
+  <script>
+  var yhendus=new XMLHttpRequest();
+  yhendus.onreadystatechange=andmedSaabusid;
+  function arvutamine(){
+    var e = document.getElementById("Anum");
+    var a1 = e.options[e.selectedIndex].value;
+    var x = document.getElementById("Jook");
+    var a2 = x.options[x.selectedIndex].value;
+    console.log(a1);
+    console.log(a2);
+
+    var aadress="/omahind?anum="+a1+"&mark="+a2;
+    yhendus.open("GET", aadress, true);
+    yhendus.send();
+  }
+  function andmedSaabusid(){
+    document.getElementById("vastus").innerHTML=yhendus.responseText;
+  }
+  function pudelisse(){
+    var e = document.getElementById("Anum");
+    var a1 = e.options[e.selectedIndex].value;
+    var x = document.getElementById("Jook");
+    var a2 = x.options[x.selectedIndex].value;
+    var a3=document.getElementById("k1").value;
+
+    console.log(a1);
+    console.log(a2);
+    console.log(a3);
+
+    var aadress="/pudelisse?anum="+a1+"&mark="+a2+"&kogus="+a3;
+    yhendus.open("GET", aadress, true);
+    yhendus.send();
+  }
+
+  function koikpudelisse(){
+      var e = document.getElementById("Anum");
+      var a1 = e.options[e.selectedIndex].value;
+      var x = document.getElementById("Jook");
+      var a2 = x.options[x.selectedIndex].value;
+      console.log(a1);
+      console.log(a2);
+
+      var aadress="/koikpudelisse?anum="+a1+"&mark="+a2;
+      yhendus.open("GET", aadress, true);
+      yhendus.send();
+    }
+
+  </script>
+</head>
+<h1>Paneb joogi pudelisse.</h1>
+<a href=arvutus1.html>Paenb joogi kasti</a>
+<br></br>
+<body>
+  <select id="Anum">
+  <option value="plast" checked> Plastik</option>
+  <option value="klaas" > Klaas</option>
+</select>
+  <br></br>
+  <select id="Jook">
+  <option value="olu"> Õlu</option>
+  <option value="vein"> Vein</option>
+  <option value="vesi"> Vesi</option>
+  <option value="">Tühi</option>
+</select>
+  <input type="number" id="k1" placeholder="Pudeli kogus">
+<br></br>
+
+  <input type="button" value="vala jook pudelisse" onclick="pudelisse()"/>
+  <input type="button" value="Joogipudeli mass koos joogiga" onclick="arvutamine()"/>
+<br></br>
+  <input type="button" value="Kogu jook pudelisse" onclick="koikpudelisse()"/>
+  <div id="vastus">Vastus</div>
+</body>
+</html>
