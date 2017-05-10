@@ -4,13 +4,14 @@ package t09tervikveeb;
 public class Ruut{
 
 	private double kulg;
+
 	private double pindala;
 	private double umbermoot;
 
 	// Konstruktor paneb kõik kokku.
-	public Ruut(double kulg, double pindala, double umbermoot) {
+	public Ruut(double kulg) {
 		this.kulg = kulg;
-		this.pindala = kulg*kulg;
+		this.pindala = kulg * kulg;
 		this.umbermoot = kulg * 4.0;
 	}
 

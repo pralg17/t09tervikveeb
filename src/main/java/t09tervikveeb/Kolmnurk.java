@@ -3,13 +3,16 @@ package t09tervikveeb;
 // Kolmnurgad on võrdhaarsed kolmnurgad.
 
 public class Kolmnurk{
-	private double alus; 
+	// Sisseloetavad.
+	private double alus;
 	private double kulg; 
-	private double korgus; 
+
+	// Tuletatavad.
+	private double korgus;
 	private double pindala; 
 	private double umbermoot; 
 
-	public Kolmnurk(double alus, double kulg, double korgus, double pindala, double umbermoot) {
+	public Kolmnurk(double alus, double kulg) {
 		this.alus = alus;
 		this.kulg = kulg;
 		this.korgus = Math.sqrt((Math.pow(kulg, 2) - Math.pow((2 / alus), 2)));
