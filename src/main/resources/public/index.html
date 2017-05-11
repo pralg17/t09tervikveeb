@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Joogid</title>
+	<meta charset="UTF-8">
+    <script>
+        var yhendus = new XMLHttpRequest();
+		var yhendus2 = new XMLHttpRequest();
+		var yhendus3 = new XMLHttpRequest();
+		var yhendus4 = new XMLHttpRequest();
+        yhendus.onreadystatechange = vaadiAndmed;
+		yhendus2.onreadystatechange = pudeliteArv;
+		yhendus3.onreadystatechange = pudeliAndmed;
+		yhendus4.onreadystatechange = villitudPudelid;
+		
+		//andmete kogumine
+		
+        function lisaVaat(){  //(mahutavus, kogus, jook,  omahind)
+    	    var aadress = "/vaatjoogiga?mahutavus=" + document.getElementById("kast1").value + 
+				   "&kogus=" + document.getElementById("kast3").value + 
+				   "&jook=" + document.getElementById("kast2").value +
+				   "&omahind=" + document.getElementById("kast4").value;
+		    console.log(aadress);
+    	    yhendus.open("GET", aadress, true);   //vaadiAndmed
+    	    yhendus.send();
+       }
+	    function lisaPudelid(){  
+			//arv
+			var aadress = "/pudelitearv?arv=" + document.getElementById("kast5").value;
+			console.log(aadress);
+			yhendus2.open("GET", aadress, true);   //pudeliteArv
+    	    yhendus2.send();
+	    }
+		
+		function pudelid(){
+			//String mahutavus, String mass, String hind
+			var aadress = "/pudel?mahutavus=" + document.getElementById("kast6").value +
+			               "&mass=" + document.getElementById("kast7").value +
+						   "&hind=" + document.getElementById("kast8").value;
+			console.log(aadress);
+			yhendus3.open("GET", aadress, true);   //pudeliAndmed
+    	    yhendus3.send();
+		}
+		
+		function villi(){
+			var aadress = "/pudelvaadist";
+			yhendus4.open("GET", aadress, true);   //villitudPudelid
+    	    yhendus4.send();
+		}
+		
+		//saabunud andmed
+		
+        function vaadiAndmed(){
+			//document.getElementById("algus").innerHTML = "";
+    	    document.getElementById("vaat").innerHTML = yhendus.responseText;   
+       }
+	   
+	    function pudeliteArv(){
+    	    document.getElementById("pudelitearv").innerHTML = yhendus2.responseText;
+	   
+	    }
+		
+		function pudeliAndmed(){
+    	    document.getElementById("pudeliandmed").innerHTML = yhendus3.responseText;   
+       }
+	   
+	   function villitudPudelid(){
+    	    document.getElementById("villitud").innerHTML = yhendus4.responseText;   
+       }
+    </script>
+  </head>
+  <body>
+  <div id="algus">
+  Täida vaat joogiga:
+  <br>
+  <br>
+    Vaadi ruumala <input type="text" id="kast1" placeholder="ruumala"/>
+	<br><br>
+	Joogi nimetus <input type="text" id="kast2" placeholder="joogi nimetus"/>
+	<br><br>
+    Kogus vaadis <input type="text" id="kast3" placeholder="joogi kogus"/>
+	<br><br>
+	Joogi liitri omahind <input type="text" id="kast4" placeholder="hind"/>
+	<br>
+	<br>
+    <input type="button" value="Lisa vaat" onclick="lisaVaat()"/>
+	</div>
+	<br>
+	
+	<div id="pudelid">
+	<input type="text" id="kast5" placeholder="pudelite arv"/>
+	<input type="button" value="Lisa pudeleid" onclick="lisaPudelid()"/>
+	<br>
+	<p>Lisatud pudelite arv <span id="pudelitearv"></span></p>
+	<br>
+	<br>
+	Pudeli maht <input type="text" id="kast6" placeholder="pudeli maht"/>
+	<br>
+	Pudeli mass <input type="text" id="kast7" placeholder="pudeli mass"/>
+	<br>
+	Taara hind <input type="text" id="kast8" placeholder="taara hind"/>
+	<br>
+	<br>
+	<input type="button" value="Lisa pudeli andmed" onclick="pudelid()"/>
+	</div>
+	<br>
+	<div id="pudeliandmed"></div>
+	<br>
+	<p>_______________________________________</p>
+	<div>
+	<input type="button" value="Villi pudel" onclick="villi()"/>
+	</div>
+	<br>
+	<br>
+	<div id="vaat"></div>
+	
+	
+	<div id="villitud"></div>
+  </body>
+</html>
