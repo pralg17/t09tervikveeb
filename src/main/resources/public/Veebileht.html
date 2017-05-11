@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script>
+	var yhendus=new XMLHttpRequest();
+	yhendus.onreadystatechange=andmedSaabusid;
+	function vajutus(){
+		var a1=document.getElementById("kast1").value;
+		var a2=document.getElementById("kast2").value;
+		var a3=document.getElementById("kast3").value;
+		var a4=document.getElementById("kast4").value;
+		
+		
+		document.getElementById("xKordaja").innerHTML = a1;
+		document.getElementById("Vabaliige").innerHTML = a2;
+		document.getElementById("xKordaja2").innerHTML = a3;
+		document.getElementById("Aste").innerHTML = a4;
+		
+		
+		if (a1.length>0 && a2.length==0 && a3.length==0 && a4.length==0){
+			console.log("esimene if");
+			yhendus.open("GET","/xKordaja?x="+a1+"&a=0", true);
+			yhendus.send();
+		}else if(a1.length>0 && a2.length>0 && a3.length==0 && a4.length==0){
+			console.log("teine if");
+			yhendus.open("GET","/Vabaliige?x="+a1+"&vabaliige="+a2, true);
+			yhendus.send();
+		}else if(a1.length==0 && a2.length>0 && a3.length==0 && a4.length==0){
+			console.log("kolmas if");
+			yhendus.open("GET","/Vabaliige?x=0&vabaliige="+a2, true);
+			yhendus.send();
+			
+			
+			
+		}else if(a1.length==0 && a2.length==0 && a3.length>0 && a4.length>0){
+			console.log("neljas if");
+			yhendus.open("GET","/Parabool?kordaja="+a3+"&aste="+a4, true);
+			yhendus.send();
+		
+		
+		}else{
+			console.log("viies if");
+			yhendus.open("GET","/Puudu?x0&a=0", true);
+			yhendus.send();
+		}
+		
+		
+	}
+	function andmedSaabusid(){
+		document.getElementById("vastus").innerHTML=yhendus.responseText;
+	}
+	
+	</script>
+</head>
+<body>
+    <h1>Y = xKordaja * 7 + Vabaliige</h1>
+	<input type="text" id="kast1" placeholder="xKordaja"/>
+	<input type="text" id="kast2" placeholder="Vabaliige"/>
+	<br>
+	<br>y =<span id="xKordaja"> xKordaja </span>*7 + <span id="Vabaliige">Vabaliige</span>
+	
+	<h1>Y = xKordaja2 ^ Aste</h1>
+	<input type="text" id="kast3" placeholder="xKordaja2"/>
+	<input type="text" id="kast4" placeholder="Aste"/>
+	<br>y =<span id="xKordaja2"> xKordaja2 </span> ^ <span id="Aste">Aste</span>
+	<br>
+	<input type="button" value="Arvuta" onclick="vajutus()"/>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div id="vastus">Vastuse koht</div>
+</body>
+</html>
