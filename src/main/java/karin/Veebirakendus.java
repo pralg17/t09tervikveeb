@@ -146,3 +146,7 @@ public class Veebirakendus {
 //http://localhost:5555/kast?hind=4&mass=1.5&mahutavus=6
 //http://localhost:5555/pudel?mahutavus=1&mass=0.1&hind=0.1
 //http://localhost:5555/pudelvaadist?mahutavus=1&mass=0.1&hind=6
+
+/*
+https://joogid.herokuapp.com/ 
+*/
