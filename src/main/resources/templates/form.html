@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+
+<select id='paintings'>
+
+    <option th:each="p : ${paintings}" th:value="${p}"
+            th:text="${p}"></option>
+
+</select>
+<input type='text' name='painting'/>
+<input type='text' name='genre'/>
+<input type='button' value='Change' onclick='change()'/>
+
+</body>
+</html>
