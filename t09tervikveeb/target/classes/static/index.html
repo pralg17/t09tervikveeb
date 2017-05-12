@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Värvitaabel</title>
+<script>
+        var yhendus=new XMLHttpRequest();
+        yhendus.onreadystatechange=andmedSaabusid;
+
+        function lisavarv() {
+            var nimi = document.getElementById("nimi").value;
+            var hexkood = document.getElementById("hexkood").value;
+            connection.open("GET", "/lisamine?nimi=" + nimi + "&hexkood=" +hexkood, true);
+            connection.send();
+        }
+        
+        function andmedSaabusid(){
+            document.getElementById("vastus").innerHTML=yhendus.responseText;
+        }
+    </script>
+
+</head>
+<body>
+
+<h2>Lisamine</h2>
+<p>Värv<p>
+<input id="nimi" type="text">
+<p>Hex Kood</p>
+<input id="hexkood" type="text">
+
+<input type="button" value="lisa" onclick="lisavarv()">
+
+
+</body>
+</html>
