@@ -1,0 +1,39 @@
+<html>
+<head> 
+<title>Calculator</title>
+
+	<script>
+
+        var connection=new XMLHttpRequest();
+        connection.onreadystatechange=receivedData;
+
+		function increment(){
+			var fruit=document.getElementById("selection").value;
+			connection.open("GET", "/increment?fruit="+fruit, true);
+			connection.send();
+		}
+		function sum(){
+			var fruit=document.getElementById("selection").value;
+			connection.open("GET", "/sum?fruit="+fruit, true);
+			connection.send();
+		}
+        function receivedData(){
+            document.getElementById("response").innerHTML=connection.responseText;
+        }
+
+	</script> 
+
+</head>
+
+<body>
+
+
+<select id="selection">
+	<option value="Apple">Apple</option>
+	<option value="Banana">Banana</option>
+</select>
+<input type="button" value="Increment" id="increment" onclick="increment()"/>
+<input type="button" value="Sum" id="sum" onclick="sum()" />
+<div id="response"></div>
+</body>
+</html>
