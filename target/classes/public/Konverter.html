@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8"/>
+    <title>Konverter</title>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = getData;
+        function getData() {
+            document.getElementById("vastus").innerHTML = xhr.responseText;
+        }
+        function onPress() {
+            var url = "/FarenCelsius?x=" + document.getElementById("Faren").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		 }
+		function onPress2() {
+            var url = "/KelvinCelsius?x=" + document.getElementById("Kelvin").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		
+		function onPress6() {
+            var url = "/KelvinFaren?x=" + document.getElementById("Kelvin2").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		
+		function onPress3() {
+            var url = "/FarenKelvin?x=" + document.getElementById("Faren2").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		function onPress4() {
+            var url = "/CelsiusKelvin?x=" + document.getElementById("Celsius2").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		function onPress5() {
+            var url = "/CelsiusFaren?x=" + document.getElementById("Celsius").value;
+            xhr.open("GET", url, true);
+            xhr.send();
+		}
+		 
+    </script>
+</head>
+<body>
+
+<div id = "celsiusDiv">
+	<h2>celsisu faren</h2>
+	<input type="text" id="Faren"><br>
+	<input type="button" value="Arvuta" onclick="onPress()"/>
+	
+	<br>
+
+	<h2>celsius kelvin</h2>
+	<input type="text" id="Faren2"><br>
+	<input type="button" value="Arvuta" onclick="onPress3()"/>
+	</div>
+
+
+
+<div id = "farenDiv">
+	<h2>faren celsius</h2>
+	<input type="text" id="Kelvin"><br>
+	<input type="button" value="Arvuta" onclick="onPress2()"/>
+
+	<br>
+	<h2>faren kevlin</h2>
+	<input type="text" id="Kelvin2"><br>
+	<input type="button" value="Arvuta" onclick="onPress6()"/>
+
+	
+</div>
+
+
+
+<div id = "kelvinDiv">
+	<h2>kevlin celsius</h2>
+	<input type="text" id="Celsius"><br>
+	<input type="button" value="Arvuta" onclick="onPress5()"/>
+
+	<br>
+	<h2>kevlin faren</h2>
+	<input type="text" id="Celsius2"><br>
+	<input type="button" value="Arvuta" onclick="onPress4()"/>
+	
+</div>
+
+<br>
+<center><div id="vastus"></div></center>
+
+
+</body>
+</html>
