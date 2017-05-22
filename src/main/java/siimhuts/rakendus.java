@@ -13,11 +13,13 @@ public class rakendus{
 		pyramiid p3 = new pyramiid(alus, korgus, kKorgus);
 		return "Pyramiidi ruumala ja kuljepindala on " + p3.ruumala() + "ja" + p3.kuljePindala();
 	}
-	public static void main(String [] arg){
-		SpringApplication.run(rakendus.class, arg);
-	}
+	public static void main(String[] args) {
+		System.getProperties().put("server.port", 4029);
+        SpringApplication.run(rakendus.class, args);
+    }
 }
 //scl enable rh-maven33 bash
 //mvn package
-//java -Dserver.port=4545 -jar target/app1.jar
-//http://greeny.cs.tlu.ee:4545/tervita?eesnimi=Juku
+//mvn test
+//java -jar target/app-1.jar
+//http://localhost:5554/pyramiid?alus=2&korgus=3&kKorgus=3
