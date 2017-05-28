@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Ostukorv</title>
+	
+	<style>
+		th {
+			text-align: left;
+		}
+	</style>
+	
+	<script>
+		var connection = new XMLHttpRequest();
+		connection.onreadystatechange = gotData;
+		
+		var allProducts = "";
+		
+		function addProduct() {
+			var product = document.getElementById("product").value;
+			var amount = document.getElementById("amount").value;
+			
+			var currentProduct = product + amount;
+			allProducts += currentProduct;
+			
+			connection.open("GET", "/shoppingcart?products=" + allProducts, true);
+			connection.send();
+		}
+		
+		function gotData() {
+			document.getElementById("productList2").innerHTML = connection.responseText;
+		}
+		
+		function clearCart() {
+			allProducts = "";
+			var productList2 = document.getElementById("productList2");
+			productList2.innerHTML = "";
+		}
+		
+	</script>
+</head>
+
+<body>
+
+	<div>
+		<h1>Tooted</h1>
+		
+		<select id="product">
+			<option value="a">Elektrikitarr</option>
+			<option value="b">Pakk kitarrikeeli</option>
+			<option value="c">Medikas</option>
+		</select>
+		
+		<input type="number" id="amount" value=1>
+		
+		<button type="button" onclick="addProduct()">Lisa toode</button>
+		<button type="button" onclick="clearCart()">Tühjenda ostukorv</button>
+		
+	</div>
+	
+	<table id="productList2"></table>
+
+</body>
+</html>
