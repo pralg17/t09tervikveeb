@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MENÜÜ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        th {
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+<body>
+<center>
+
+<h2>Menüü</h2>
+<div>
+    <table id="foodList" class="table table-inverse"></table>
+</div>
+
+<h2>Lisa toit menüüsse</h2>
+<label>Toidu nimetus</label><br>
+<input id="toidu_nimetus" type="text"><br>
+<label>Tüüp</label><br>
+<input id="toidu_tyyp" type="text"><br>
+<label>Hind</label><br>
+<input id="hind" type="number"><br>
+
+
+<input type="button" class="btn btn-success" value="lisa" onclick="addNewFood()">
+
+<h2>Kustuta</h2>
+<label>Toiduaine id</label><br>
+<input id="deleteFoodByID" type="number">
+<input type="button" class="btn btn-danger" value="kustuta" onclick="deleteFood()">
+
+<h2>Otsi hinnavahemiku järgi </h2>
+<label>Miinimum</label>
+<input id="findFoodFatMin" type="number"><br>
+<label>Maksimum</label>
+<input id="findFoodFatMax" type="number"><br>
+<input type="button" class="btn" value="Otsi" onclick="findFoodByFat()">
+<br><br><br>
+
+
+
+</center>
+<script>
+    var connection = new XMLHttpRequest();
+    connection.onreadystatechange = foodData;
+
+    function displayAllFood() {
+        connection.open("GET", "/listall", true);
+        connection.send();
+    }
+    displayAllFood();
+
+    function addNewFood() {
+      //Võtab kõigile muutujatele sisestatud väärtuse HTML formist
+        var toidu_nimetus = document.getElementById("toidu_nimetus").value;
+        var toidu_tyyp = document.getElementById("toidu_tyyp").value;
+		    var hind = document.getElementById("hind").value;
+
+        connection.open("GET", "/lisa?toidu_nimetus=" + toidu_nimetus + "&toidu_tyyp=" +
+            toidu_tyyp + "&hind=" + hind, true);
+        connection.send();
+    }
+
+    function deleteFood() {
+        var deleteFood = document.getElementById("deleteFoodByID").value;
+        connection.open("GET", "/kustuta?id=" + deleteFood, true);
+        connection.send();
+    }
+
+    function foodData() {
+        document.getElementById("foodList").innerHTML = connection.responseText;
+    }
+
+    function findFoodByFat(){
+      //Võtab HTML osast finFoodFatMin väärtuse
+      var findFoodFatMin = document.getElementById("findFoodFatMin").value;
+      var findFoodFatMax = document.getElementById("findFoodFatMax").value;
+      //Sisestab rasvaotsingusse Min ja Max väärtused, mille vahemiku võtab
+      connection.open("GET","/hinnavahemik?hind_min=" + findFoodFatMin + "&hind_max=" + findFoodFatMax, true);
+      connection.send();
+    }
+
+
+</script>
+
+
+</body>
+
+
+</html>
