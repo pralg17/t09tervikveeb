@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jookide leht</title>
+	<script>
+	   /*var xhr=new XMLHttpRequest();
+	   xhr.onreadystatechange=andmedSaabusid;
+	   function andmedSaabusid(){
+	      document.getElementById("vastus1").innerHTML=xhr.responseText;
+	   }
+	   function vajutus1(){
+	      xhr.open("GET", "/tervitus", true);
+		  xhr.send();
+	   }
+	   function vajutus2(){
+	      xhr.open("GET", "/pudelvaadist", true);
+		  xhr.send();
+	   }*/
+	</script>
+  </head>
+  <body>
+	<p>Ioonid sessioonis:</p>
+	<p id="ioonid"></p>
+	<input type="text" name="ioon" placeholder="Sisesta ioon" />
+    <input type="button" value="Lisa" onclick="vajutus1()" />
+    <input type="button" value="Tee aine" onclick="vajutus2()" />
+    <p id="vastus"></p>
+  </body>
+</html>

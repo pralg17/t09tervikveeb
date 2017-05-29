@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jookide leht</title>
+	<script>
+		var yhendus=new XMLHttpRequest();
+		yhendus.onreadystatechange=andmedSaabusid;
+		function iooniLisamine(){
+			var nimetus=document.getElementById("1").value;  
+			var aatommass=document.getElementById("2").value;  
+			var laeng=document.getElementById("3").value;  
+			var aadress="/lisaioon?nimetus="+nimetus+"&aatommass="+aatommass+"&laeng="+laeng;
+			yhendus.open("GET", aadress, true);
+			yhendus.send();
+		}
+
+		function tekitaAine(){
+			yhendus.open("GET", "/tekitaaine", true);
+			yhendus.send();
+			document.getElementById("aine").innerHTML=yhendus.responseText;
+		}
+				
+		function andmedSaabusid(){
+			document.getElementById("aine").innerHTML=yhendus.responseText;
+		}
+	</script>
+  </head>
+  <body>
+	
+	<p id="ioonid"></p>
+	<input id="1" type="text" name="iNimetus" placeholder="Iooni nimetus" />
+	<input id="2" type="text" name="iAatommass" placeholder="Iooni aatommass" />
+	<input id="3" type="text" name="iLaeng" placeholder="Iooni laeng" />
+    <input type="button" value="Lisa" onclick="iooniLisamine()" />
+    <input type="button" value="Tee aine" onclick="tekitaAine()" />
+    <p id="aine"></p>
+  </body>
+</html>
