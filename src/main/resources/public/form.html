@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+	var connection = new XMLHttpRequest();
+	
+	connection.onreadystatechange=receivedData;
+
+	function edit(){
+		var artist = document.getElementById("artist").value;
+		var painting = document.getElementById("painting").value;
+		var genre = document.getElementById("genre").value;
+		connection.open("GET", "edit?artist="+artist+"&painting="+painting+"&genre="+genre, true);
+		connection.send();
+	}
+	function receivedData(){
+		document.getElementById("response").innerHTML = connection.responseText;
+	}
+
+</script>
+</head>
+<body>
+
+<input type="text" id="artist"/>
+<input type="text" id="painting"/>
+<input type="text" id="genre"/>
+<input type="button" id="submit" value="Edit" onclick="edit()" />
+
+<div id="response"></div>
+</body>
+</html>
