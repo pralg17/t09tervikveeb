@@ -57,7 +57,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="aineTest" classname="cleven.iooniLoomineTest" time="0.004"/>
-  <testcase name="aine_massiivTest" classname="cleven.iooniLoomineTest" time="0"/>
+  <testcase name="aineTest" classname="cleven.iooniLoomineTest" time="0.001"/>
+  <testcase name="aine_massiivTest" classname="cleven.iooniLoomineTest" time="0.003"/>
   <testcase name="ioonTest" classname="cleven.iooniLoomineTest" time="0"/>
 </testsuite>

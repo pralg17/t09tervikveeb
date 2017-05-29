@@ -14,8 +14,10 @@ import javax.servlet.http.HttpSession;
 
 public class rakendus {
 	
+	//@Autowired
+	//HttpSession session;
+	
 	@Autowired
-	HttpSession session;
 	private ArticleTable table;
 	
 	@RequestMapping("/tervita")
@@ -23,13 +25,20 @@ public class rakendus {
         return "tervitus";
     }
 	
-	@RequestMapping("/save_article")
+	@RequestMapping("/test")
+	public String test(String kategooria){
+		if(kategooria==null){return "kategooria määramata";}
+		ArticleEntity a=table.findOne(kategooria);	
+        return a.title;		
+	}
+	
+	@RequestMapping("/savearticle")
 	public String save(String title, String category){
 		table.save(new ArticleEntity(title, category));
 		return "artikkel salvestatud";
 	}
 	
-	@RequestMapping("/lisaioon")
+	/*@RequestMapping("/lisaioon")
 	public String lisaIoon(String nimetus, double aatommass, int laeng){
 		ioon i1= new ioon(nimetus, aatommass, laeng);
 		if(session.getValue("ioonid")==null){
@@ -60,13 +69,17 @@ public class rakendus {
 			return "Sellist ainet ei saa luua!";
 		}
 		
-	}
+	}*/
 	
  
     public static void main(String[] args) {
 		System.getProperties().put("server.port", 4288);
-        SpringApplication.run(rakendus.class, args);
-    }
+		System.getProperties().put("spring.datasource.url", 
+		   "jdbc:mysql://localhost/if16_clevenl");
+		System.getProperties().put("spring.datasource.username", "if16");
+		System.getProperties().put("spring.datasource.password", "ifikad16");
+		SpringApplication.run(rakendus.class);
+	}
 }
 
 //scl enable rh-maven33 bash
