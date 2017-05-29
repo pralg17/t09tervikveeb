@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script>
+	var yhendus=new XMLHttpRequest();
+	yhendus.onreadystatechange=andmedSaabusid;
+	function vajutus(){
+		var a1=document.getElementById("kast1").value;
+		var a2=document.getElementById("kast2").value;
+			yhendus.open("GET","/joon2?a="+a1+"&b="+a2, true);
+			yhendus.send();
+		}
+		
+	
+	function andmedSaabusid(){
+		document.getElementById("vastus").innerHTML=yhendus.responseText;
+	}
+	
+
+
+	</script>
+</head>
+<body>
+    <h1>Kolmnurga pindala arvutamine</h1>
+	<br><br>
+	Sisesta alus<br>
+	<input type="text" id="kast1" placeholder="alus"/><br>
+	Sisesta korgus<br>
+	<input type="text" id="kast2" placeholder="korgus"/>
+	<br>
+	<input type="button" value="Arvuta" onclick="vajutus()"/>
+	<br><br>
+	<div id="vastus">Vastus: </div>
+</body>
+</html>
