@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script>
+	var yhendus=new XMLHttpRequest();
+	yhendus.onreadystatechange=andmedSaabusid;
+	function vajutus(){
+		var a1=document.getElementById("kast1").value;
+		var a2=document.getElementById("kast2").value;
+			yhendus.open("GET","/pindala?esimenekulg="+a1+"&teinekulg="+a2, true);
+			yhendus.send();
+		}
+		
+	
+	function andmedSaabusid(){
+		document.getElementById("vastus").innerHTML=yhendus.responseText;
+	}
+	
+
+
+	</script>
+</head>
+<body>
+    <h1>Ristkuliku pindala arvutamine</h1>
+	<br><br>
+	Sisesta uks kulg<br>
+	<input type="text" id="kast1" placeholder="a"/><br>
+	Sisesta teine kulg<br>
+	<input type="text" id="kast2" placeholder="b"/>
+	<br>
+	<input type="button" value="Arvuta" onclick="vajutus()"/>
+	<br><br>
+	<div id="vastus">Vastus: </div>
+</body>
+</html>
