@@ -23,7 +23,7 @@ public class Main{
 	public String increment(String fruit){
 		
 		for(Fruit f: fruits){
-			if(f.getName() == fruit){
+			if(f.getName().equals(fruit)){
 				f.increment();
 				return f.toString();
 			}
@@ -35,7 +35,7 @@ public class Main{
 	public String calculateSum(String fruit){
 		
 		for(Fruit f: fruits){
-			if(f.getName() == fruit){
+			if(f.getName().equals(fruit)){
 				return "Sum: "+f.sum();
 			}
 		}
@@ -43,7 +43,7 @@ public class Main{
 	}
 	
 	public static void main(String[] args){
-		
+		System.getProperties().put("server.port", 37878);
 		SpringApplication.run(Main.class, args);
 	
 	}
