@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Filmiarvestus</title>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css" />
+		<script>
+
+			var yhendus=new XMLHttpRequest();
+			yhendus.onreadystatechange=andmedSaabusid;
+			
+			function vajutus(){
+				var nimi=document.getElementById("nimi").value;
+				var aasta=document.getElementById("aasta").value;
+				var seis=document.getElementById("seis").value;
+				var pikkus=document.getElementById("pikkus").value;
+				
+				yhendus.open("GET","/lisa?nimi="+nimi+"&aasta="+aasta+"&seis="+seis+"&pikkus="+pikkus, true);
+				yhendus.send();
+
+			}
+			
+			function vaadatud(){
+				
+				yhendus.open("GET","/vaadatud", true);
+				yhendus.send();
+
+			}
+			
+			function vaatamata(){
+				
+				yhendus.open("GET","/vaatamata", true);
+				yhendus.send();
+
+			}
+			function pooleli(){
+				
+				yhendus.open("GET","/pooleli", true);
+				yhendus.send();
+
+			}
+			
+			function muuda(){
+				var nimi=document.getElementById("muudetavaNimi").value;
+				var seis=document.getElementById("uusSeis").value;
+				
+				yhendus.open("GET","/muuda?nimi="+nimi+"&seis="+seis, true);
+				yhendus.send();
+
+			}
+	
+			function andmedSaabusid(){
+				document.getElementById("filmid").innerHTML=yhendus.responseText;
+			}
+
+		</script>
+		
+		
+	</head>
+	
+	<body>
+		<header>
+			<h1>Filmiarvestus</h1>
+		</header>
+		
+		<div class="wrapper">
+		
+			<div class="box">
+			
+				<h2>Sisesta film</h2>
+				
+				<input type="text" id="nimi" placeholder="Nimi"/>
+				<input type="number" id="aasta" placeholder="Valmimisaasta" min="0"/>
+				<input type="text" id="seis" placeholder="Olek"/>
+				<input type="number" id="pikkus" placeholder="Pikkus minutites"/>
+				
+				<input type="submit" value="Sisesta" onclick="vajutus()"/>
+				<br><br>
+				<input type="submit" value="vaadatud" onclick="vaadatud()"/>
+				<input type="submit" value="vaatamata" onclick="vaatamata()"/>
+				<input type="submit" value="pooleli" onclick="pooleli()"/>
+				
+				<div id="filmid"></div>
+				
+				<div id="muutmine">
+					<input type="text" id="muudetavaNimi" placeholder="Nimi"/>
+					<input type="text" id="uusSeis" placeholder="Mis olekusse?"/>
+					<input type="submit" value="Muuda" onclick="muuda()"/>
+				</div>
+
+			</div><!--.box-->
+			
+		</div><!--.wrapper-->
+	</body>
+</html>
