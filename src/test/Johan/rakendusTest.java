@@ -13,7 +13,7 @@ package Johan;
  @RunWith(SpringRunner.class)
  @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
  
- public class pindalaTest{
+ public class rakendusTest{
      @Autowired
      private TestRestTemplate restTemplate;
  
