@@ -12,16 +12,6 @@ public class Rakendus {
 	@Autowired
     private FilmidDao filmid;
 	
-	@RequestMapping("/algus")
-    String tervitusfunktsioon() {
-        return "Ahoi! t09veebirakendus2";
-    }
-	
-	@RequestMapping("/loetelu")
-	public Iterable<Filmid> loetelu(){
-		return filmid.findAll();
-	}
-	
 	@RequestMapping("/vaadatud")
 	String vaadatud(){
 		StringBuffer sb=new StringBuffer();
