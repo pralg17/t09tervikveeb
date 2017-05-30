@@ -39,6 +39,15 @@
 				yhendus.send();
 
 			}
+			
+			function muuda(){
+				var nimi=document.getElementById("muudetavaNimi").value;
+				var seis=document.getElementById("uusSeis").value;
+				
+				yhendus.open("GET","/muuda?nimi="+nimi+"&seis="+seis, true);
+				yhendus.send();
+
+			}
 	
 			function andmedSaabusid(){
 				document.getElementById("filmid").innerHTML=yhendus.responseText;
@@ -65,13 +74,19 @@
 				<input type="text" id="seis" placeholder="Olek"/>
 				<input type="number" id="pikkus" placeholder="Pikkus minutites"/>
 				
-				<input type="submit" value="OK" onclick="vajutus()"/>
+				<input type="submit" value="Sisesta" onclick="vajutus()"/>
 				<br><br>
 				<input type="submit" value="vaadatud" onclick="vaadatud()"/>
 				<input type="submit" value="vaatamata" onclick="vaatamata()"/>
 				<input type="submit" value="pooleli" onclick="pooleli()"/>
 				
 				<div id="filmid"></div>
+				
+				<div id="muutmine">
+					<input type="text" id="muudetavaNimi" placeholder="Nimi"/>
+					<input type="text" id="uusSeis" placeholder="Mis olekusse?"/>
+					<input type="submit" value="Muuda" onclick="muuda()"/>
+				</div>
 
 			</div><!--.box-->
 			

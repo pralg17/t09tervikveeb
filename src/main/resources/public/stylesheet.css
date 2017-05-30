@@ -26,11 +26,16 @@ header {
 
 #filmid {
 	text-align: center;
-	height: 200px;
+	min-height: 200px;
 	padding-top: 25px;
 }
 
 h2 {
 	margin: 25px;
+}
+
+#muutmine {
+	margin-top: 25px;
+	margin-bottom: 25px;
 }
 
