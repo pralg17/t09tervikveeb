@@ -1,0 +1,36 @@
+header {
+	background-color: #f2f2f2;
+	width: 960px;
+	height: 96px;
+	margin: 25px auto 0px auto;
+	border-radius: 5px;
+	text-align:center;
+	line-height: 96px;
+}
+
+.wrapper {
+	width: 960px;
+	min-height: 300px;
+	background-color: white;
+	margin: 0px auto 0px auto;
+	overflow: auto;
+}
+
+.box {
+	text-align: center;
+	background-color: #f2f2f2;
+	margin: 50px 25px 25px 25px;
+	border-radius: 5px;
+	padding: 25px;
+}
+
+#filmid {
+	text-align: center;
+	height: 200px;
+	padding-top: 25px;
+}
+
+h2 {
+	margin: 25px;
+}
+
