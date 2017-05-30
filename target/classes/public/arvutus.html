@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script>
+	var yhendus=new XMLHttpRequest();
+	yhendus.onreadystatechange=andmedSaabusid;
+	function vajutus(){
+		var height=document.getElementById("height").value;
+		var radius=document.getElementById("radius").value;
+			yhendus.open("GET","/silinder?raadius="+radius+"&korgus="+height, true);
+			yhendus.send();
+		}
+		
+	
+	function andmedSaabusid(){
+		document.getElementById("vastus").innerHTML=yhendus.responseText;
+	}
+	
+	</script>
+</head>
+<body>
+    <h1>Silindri ruumala arvutamine</h1>
+	<br><br>
+	Sisesta silindri kõrgus<br>
+	<input type="text" id="height" placeholder="h"/><br>
+	Sisesta silindri põhja raadius<br>
+	<input type="text" id="radius" placeholder="r"/>
+	<br>
+	<input type="button" value="Arvuta" onclick="vajutus()"/>
+	<br><br>
+	<div id="vastus">Vastus: </div>
+</body>
+</html>
