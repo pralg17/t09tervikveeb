@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Silindri kalkulaator</title>
+    
+</head>
+<body>
+	<p id="testResult"></p>
+	<h1>Silindri kalkulaator</h1>
+	<div style="display:flex;height:20px;align-items:center;margin-bottom:20px">
+			<p style="width:70px">Raadius: </p><input id="radius" type="number" step="0.1" value="0">
+	</div>
+	<div style="display:flex;height:20px;align-items:center">
+			<p style="width:70px">Kõrgus: </p><input id="height" type="number" step="0.1" value="0">
+	</div>
+	<p>Ruumala: <span id="volume"></span></p>
+	<p>Põhjapindala: <span id="baseArea"></span></p>
+	<p>Küljepindala: <span id="sideArea"></span></p>
+	<p>Täispindala: <span id="totalArea"></span></p>
+	
+	<script src="calculator.js" charset="utf-8"></script>
+</body>
+</html>
